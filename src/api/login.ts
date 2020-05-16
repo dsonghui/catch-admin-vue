@@ -1,5 +1,5 @@
-import api from './index'
-import { axios } from '@/utils/request'
+import api from './index';
+import { axios } from '@/utils/request';
 
 /**
  * login func
@@ -12,39 +12,39 @@ import { axios } from '@/utils/request'
  * @param parameter
  * @returns {*}
  */
-export function login (parameter) {
+export function login(parameter) {
   return axios({
     url: '/login',
     method: 'post',
     data: parameter
-  })
+  });
 }
 
-export function getSmsCaptcha (parameter) {
+export function getSmsCaptcha(parameter) {
   return axios({
     url: api.SendSms,
     method: 'post',
     data: parameter
-  })
+  });
 }
 
-export function getInfo () {
+export function getInfo() {
   return axios({
     url: '/user/info',
     method: 'get'
-  })
+  });
 }
 
-export function getCurrentUserNav (token) {
+export function getCurrentUserNav(token) {
   return axios({
     url: '/user/nav',
     method: 'get'
-  })
+  });
 }
 
-export function logout () {
+export function logout(token) {
   return axios({
     url: '/logout',
     method: 'post'
-  })
+  });
 }

@@ -4,13 +4,12 @@
  * Date: 2017/01/24
  */
 
-interface Getters {
-}
-
-declare module 'vuex' {
-    interface Store<S> {
-        testabc: string;
-        readonly getters: Getters | any;
-    }
-
-}
+// interface Getters {
+// }
+//
+// declare module 'vuex' {
+//     interface Store<S> {
+//         testabc: string;
+//         readonly getters: Getters | any;
+//     }
+// }

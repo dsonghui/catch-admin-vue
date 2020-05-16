@@ -1,10 +1,10 @@
 // eslint-disable-next-line
-import { UserLayout, BasicLayout, RouteView, BlankLayout, PageView } from '@/layouts'
+import { UserLayout, BasicLayout, RouteView, BlankLayout, PageView } from '@/layouts';
 
 export const asyncRouterMap = [
   {
     path: '/',
-    name: 'index',
+    name: 'dashboard',
     component: BasicLayout,
     meta: { title: '首页' },
     redirect: '/dashboard/workplace'
@@ -12,7 +12,7 @@ export const asyncRouterMap = [
   {
     path: '*', redirect: '/404', hidden: true
   }
-]
+];
 
 /**
  * 基础路由
@@ -56,4 +56,4 @@ export const constantRouterMap = [
     component: () => import(/* webpackChunkName: "fail" */ '@/views/exception/404.vue')
   }
 
-]
+];

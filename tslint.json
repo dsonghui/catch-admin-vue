@@ -31,6 +31,7 @@
     "trailing-comma": false,
     "prefer-const": false,
     "member-ordering": false,
+    "no-console": false,
     "arrow-parens": false
   }
 }
