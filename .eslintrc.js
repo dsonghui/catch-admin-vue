@@ -42,20 +42,15 @@ module.exports = {
         'allowTemplateLiterals': true
       }
     ],
-    'semi': [
-      2,
-      'never',
-      {
-        'beforeStatementContinuationChars': 'never'
-      }
-    ],
+    'semi': 0,
     'no-delete-var': 2,
     'prefer-const': [
       2,
       {
         'ignoreReadBeforeAssign': false
       }
-    ]
+    ],
+    'quote-props':0
   },
   parserOptions: {
     parser: '@typescript-eslint/parser'
