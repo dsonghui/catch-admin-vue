@@ -2,23 +2,9 @@
   <page-view :avatar="avatar" :title="false">
     <div slot="headerContent">
       <div class="title">{{ timeFix }}，{{ user.username }}<span class="welcome-text">，{{ welcome }}</span></div>
-      <div>欢迎使用 CatchAdmin 后台管理</div>
-    </div>
-    <div slot="extra">
-      <a-row class="more-info">
-        <a-col :span="8">
-          <head-info title="GITHUB" content="" :center="false" :bordered="false"/>
-        </a-col>
-        <a-col :span="8">
-          <head-info title="GITEE" content="8/24" :center="false" :bordered="false"/>
-        </a-col>
-        <a-col :span="8">
-          <head-info title="项目数" content="2,223" :center="false" />
-        </a-col>
-      </a-row>
     </div>
 
-    <div>
+    <div v-if="false">
       <a-row :gutter="24">
         <a-col :xl="16" :lg="24" :md="24" :sm="24" :xs="24">
           <a-card

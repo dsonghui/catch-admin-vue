@@ -1,22 +1,22 @@
 <template>
   <div class="footer">
     <div class="links">
-      <a
-        href="http://vue.catchadmin.com/"
-        target="_blank"
-      >CatchAdmin 首页</a>
-      <a
-        href="https://gitee.com/jaguarjack/catchAdmin"
-        target="_blank"
-      >
-        <a-icon type="github" />
-      </a>
-      <a href="https://ant.design/">Ant Design</a>
-      <a href="https://vue.ant.design/">Vue Antd</a>
+<!--      <a-->
+<!--        href="http://vue.catchadmin.com/"-->
+<!--        target="_blank"-->
+<!--      >CatchAdmin 首页</a>-->
+<!--      <a-->
+<!--        href="https://gitee.com/jaguarjack/catchAdmin"-->
+<!--        target="_blank"-->
+<!--      >-->
+<!--        <a-icon type="github" />-->
+<!--      </a>-->
+<!--      <a href="https://ant.design/">Ant Design</a>-->
+<!--      <a href="https://vue.ant.design/">Vue Antd</a>-->
     </div>
     <div class="copyright">
       Copyright
-      <a-icon type="copyright" /> 2017~2019 <span>CatchAdmin 开发</span>
+      <a-icon type="copyright" /> 2020
     </div>
   </div>
 </template>

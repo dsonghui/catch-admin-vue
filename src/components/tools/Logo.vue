@@ -18,7 +18,7 @@ export default {
   props: {
     title: {
       type: String,
-      default: 'CatchAdmin',
+      default: '管理后台',
       required: false
     },
     showTitle: {

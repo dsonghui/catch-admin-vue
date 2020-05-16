@@ -1,16 +1,16 @@
 <template>
   <a-card :bordered="false">
     <a-row :gutter="8">
-      <a-col :span="5">
-        <s-tree
-          :rowKey="(record) => record.data.key"
-          :dataSource="departments"
-          :openKeys="expandedKeys"
-          @click="handleClick"
-        >
-        </s-tree>
-      </a-col>
-      <a-col :span="19">
+<!--      <a-col :span="5">-->
+<!--        <s-tree-->
+<!--          :rowKey="(record) => record.data.key"-->
+<!--          :dataSource="departments"-->
+<!--          :openKeys="expandedKeys"-->
+<!--          @click="handleClick"-->
+<!--        >-->
+<!--        </s-tree>-->
+<!--      </a-col>-->
+      <a-col :span="24">
         <div class="table-page-search-wrapper">
           <a-form layout="inline">
             <a-row :gutter="48">
