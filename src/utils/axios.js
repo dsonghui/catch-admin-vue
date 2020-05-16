@@ -38,14 +38,14 @@ const VueAxios = {
             data: data
           })
         },
-        put: function put(url, data) {
+        put: function put (url, data) {
           return instance({
             url: url,
             method: 'put',
             data: data
           })
         },
-        del: function del(url) {
+        del: function del (url) {
           return instance({
             url: url,
             method: 'delete'

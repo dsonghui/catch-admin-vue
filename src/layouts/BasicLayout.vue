@@ -85,7 +85,7 @@ export default {
   data () {
     return {
       production: config.production,
-      collapsed: false,
+      collapsed: false
       // menus: []
     }
   },

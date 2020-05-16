@@ -18,40 +18,40 @@ function hasRole(roles, route) {
 }
 
 function treePermissions (permissions, $pid = 0) {
-  let routes = []
+  const routes = []
   for (const permission of permissions) {
     if ($pid === permission.parent_id) {
-        let p = {};
-        p.path = permission.route
-        p.name = permission.title
-        if (permission.redirect) {
-          p.redirect = permission.redirect
-        }
-        p.component = components[permission.component]
-        p.meta = {}
-        p.meta.title = permission.title
-        p.meta.icon = permission.icon
-        if (permission.keepalive === 1) {
-          p.meta.keepAlive = true
-        }
-       const children = treePermissions(permissions, permission.id)
-       if (children.length) {
+      const p = {}
+      p.path = permission.route
+      p.name = permission.title
+      if (permission.redirect) {
+        p.redirect = permission.redirect
+      }
+      p.component = components[permission.component]
+      p.meta = {}
+      p.meta.title = permission.title
+      p.meta.icon = permission.icon
+      if (permission.keepalive === 1) {
+        p.meta.keepAlive = true
+      }
+      const children = treePermissions(permissions, permission.id)
+      if (children.length) {
         p.children = children
-       }
-       routes.push(p)
+      }
+      routes.push(p)
     }
   }
   return routes
 }
 
 function filterThenGetMenus (permissions) {
-   const menus = [];
-   for (const permission of permissions) {
-     if (permission.type === 1) {
-       menus.push(permission)
-     }
-   }
-   return menus
+  const menus = []
+  for (const permission of permissions) {
+    if (permission.type === 1) {
+      menus.push(permission)
+    }
+  }
+  return menus
 }
 
 const permission = {
@@ -74,7 +74,7 @@ const permission = {
         resolve()
       })
     },
-    GetLatestRoutes ({commit}, data) {
+    GetLatestRoutes ({ commit }, data) {
       const { permissions } = data
       asyncRouterMap[0].children = treePermissions(filterThenGetMenus(permissions))
       commit('SET_ROUTERS', asyncRouterMap)

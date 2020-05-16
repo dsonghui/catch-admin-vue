@@ -245,16 +245,16 @@ export default {
     },
     onCheck (checkedKeys, info) {
       const data = info.node.dataRef
-      let ids = []
+      const ids = []
       ids.push(data.id)
       if (data.level) {
-         const levelIds = data.level.split('-')
-         for (const item in levelIds) {
-           const id = parseInt(levelIds[item])
-           if (this.permissionids.indexOf(id) === -1) {
-             ids.push(id)
-           }
-         }
+        const levelIds = data.level.split('-')
+        for (const item in levelIds) {
+          const id = parseInt(levelIds[item])
+          if (this.permissionids.indexOf(id) === -1) {
+            ids.push(id)
+          }
+        }
       }
       if (data.hasOwnProperty('children')) {
         this.getAllLeaf(data.children, ids)

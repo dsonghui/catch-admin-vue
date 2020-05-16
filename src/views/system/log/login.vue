@@ -15,7 +15,7 @@
       showPagination="auto"
     >
       <span slot="login_at" slot-scope="text, record">
-         {{ toDate(record.login_at) }}
+        {{ toDate(record.login_at) }}
       </span>
     </s-table>
   </a-card>
@@ -75,7 +75,7 @@ export default {
     handleOk () {
       this.$refs.table.refresh(true)
     },
-    clear() {
+    clear () {
       this.$confirm({
         title: '确定清空全部日志吗?',
         okText: '确定',
@@ -90,7 +90,7 @@ export default {
       })
     },
     toDate (timestamp) {
-        return timestampToDate(timestamp * 1000)
+      return timestampToDate(timestamp * 1000)
     }
   }
 }

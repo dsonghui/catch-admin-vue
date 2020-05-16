@@ -1,8 +1,8 @@
 <template>
   <a-card :bordered="false">
     <div class="table-operator">
-      <a-button icon="sync"  type="primary" @click="resetSearchForm()">刷新</a-button>
-      <a-button  icon="safety" @click="multiDel()" v-if="selectedRowKeys.length > 0">删除</a-button>
+      <a-button icon="sync" type="primary" @click="resetSearchForm()">刷新</a-button>
+      <a-button icon="safety" @click="multiDel()" v-if="selectedRowKeys.length > 0">删除</a-button>
     </div>
 
     <s-table

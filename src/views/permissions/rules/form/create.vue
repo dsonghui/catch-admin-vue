@@ -190,7 +190,7 @@ export default {
       redirect: '',
       hideChildrenInMenu: 2,
       show: true,
-      disabled: false, // 类型选择
+      disabled: false // 类型选择
     }
   },
   methods: {
@@ -217,7 +217,7 @@ export default {
       const { form: { setFieldsValue } } = this
       this.id = record.id
       this.$nextTick(() => {
-        setFieldsValue(pick(record, ['permission_name', 'route', 'module', 'permission_mark', 'method', 'type', 'keepalive','sort', 'icon']))
+        setFieldsValue(pick(record, ['permission_name', 'route', 'module', 'permission_mark', 'method', 'type', 'keepalive', 'sort', 'icon']))
       })
       this.typeValue = record.type
       this.sort = record.sort
@@ -231,7 +231,7 @@ export default {
       this.parent_id = record.id
       const { form: { setFieldsValue } } = this
       this.$nextTick(() => {
-          setFieldsValue(pick(record, [ 'module']))
+        setFieldsValue(pick(record, ['module']))
       })
     },
     handleSubmit () {

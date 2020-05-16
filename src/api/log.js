@@ -11,7 +11,7 @@ export function loginLogList (parameter) {
 export function emptyLoginLog () {
   return axios({
     url: '/loginLog/empty',
-    method: 'delete',
+    method: 'delete'
   })
 }
 
@@ -26,6 +26,6 @@ export function operateLogList (parameter) {
 export function emptyOperateLog () {
   return axios({
     url: '/operateLog/empty',
-    method: 'delete',
+    method: 'delete'
   })
 }

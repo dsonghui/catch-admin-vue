@@ -3,7 +3,7 @@ import 'core-js/stable'
 import 'regenerator-runtime/runtime'
 
 import Vue from 'vue'
-import App from './AppIndex'
+import App from './App.vue'
 import router from './router'
 import store from './store/'
 import { VueAxios } from './utils/request'
@@ -22,7 +22,7 @@ Vue.config.productionTip = false
 Vue.prototype.toast = toast
 
 // mount axios Vue.$http and this.$http
-Vue.use(VueAxios)
+Vue.use(VueAxios);
 
 new Vue({
   router,

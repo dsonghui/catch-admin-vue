@@ -63,8 +63,7 @@
 import { STable } from '@/components'
 import CreatePermission from './form/create'
 import { getPermissionList, del } from '@/api/permission'
-import { expandKeys } from '@/utils/util'
-import { refreshMenus } from '@/utils/util'
+import { expandKeys, refreshMenus } from '@/utils/util'
 
 export default {
   name: 'Permissions',
@@ -111,7 +110,7 @@ export default {
       ],
       // 加载数据方法 必须为 Promise 对象
       loadData: parameter => {
-        this.queryParam.actionList = 'actionList';
+        this.queryParam.actionList = 'actionList'
         return getPermissionList(Object.assign(parameter, this.queryParam))
           .then(res => {
             expandKeys(res.data, this.expandedKeys)

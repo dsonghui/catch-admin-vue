@@ -19,9 +19,9 @@ const service = axios.create({
 const err = (error) => {
   if (error.response) {
     const token = Vue.ls.get(ACCESS_TOKEN)
-    if (! token) {
+    if (!token) {
       notification.error({
-        message: '登陆失效，请重新登陆',
+        message: '登陆失效，请重新登陆'
       })
 
       setTimeout(() => {

@@ -11,7 +11,7 @@ export const mysqlTypes = new Enum({
     'float',
     'double',
     'bit',
-    'boolean',
+    'boolean'
 
   ],
   日期与时间: [
@@ -19,7 +19,7 @@ export const mysqlTypes = new Enum({
     'datetime',
     'timestamp',
     'time',
-    'year',
+    'year'
   ],
   文本: [
     'char',

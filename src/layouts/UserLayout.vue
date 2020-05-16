@@ -17,9 +17,9 @@
 
       <div class="footer">
         <div class="links">
-<!--          <a href="http://doc.catchadmin.com/" target="_blank">文档</a>-->
-<!--          <a href="https://github.com/yanwenwu/catch-admin-vue" target="_blank">地址</a>-->
-<!--          <a href="http://vue.catchadmin.com" target="_blank">官网演示</a>-->
+          <!--          <a href="http://doc.catchadmin.com/" target="_blank">文档</a>-->
+          <!--          <a href="https://github.com/yanwenwu/catch-admin-vue" target="_blank">地址</a>-->
+          <!--          <a href="http://vue.catchadmin.com" target="_blank">官网演示</a>-->
         </div>
         <div class="copyright">
           Copyright &copy; 2020
