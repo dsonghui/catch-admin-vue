@@ -1,4 +1,4 @@
-import { Enum } from '@/enums/enum.js'
+import { Enum } from '@/enums/enum'
 
 export const httpMethods = new Enum({
   get: 'get',

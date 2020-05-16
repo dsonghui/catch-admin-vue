@@ -1,7 +1,6 @@
-import Vue from "vue";
+import { Vue } from 'vue/types/vue'
 
-/**
- * TypeScript 类型提示设置;
- * Author: david.deng<david.deng@jcinfotech.com>
- * Date: 2017/11/24
- */
+declare module 'vue/types/vue' {
+  interface Vue {
+  }
+}

@@ -1,4 +1,4 @@
-import { Enum } from '@/enums/enum.js'
+import { Enum } from '@/enums/enum'
 
 export const components = new Enum({
   layouts: [
@@ -20,6 +20,8 @@ export const components = new Enum({
     'operateLog',
     'attachment',
     'config',
-    'generate'
+    'generate',
+    'xiaoquIndex',
+    'IsEmptyPage'
   ]
 })

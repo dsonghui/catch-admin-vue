@@ -1,4 +1,4 @@
-import { Enum } from '@/enums/enum.js'
+import { Enum } from '@/enums/enum'
 
 export const mysqlTypes = new Enum({
   数字: [
