@@ -1,6 +1,7 @@
 // with polyfills
 import 'core-js/stable'
-import 'regenerator-runtime/runtime'
+import 'regenerator-runtime/runtime';
+import 'core-js/features/reflect'; // vue-property-decorator 推断typescript类型需要;
 
 import Vue from 'vue'
 import App from './App.vue'

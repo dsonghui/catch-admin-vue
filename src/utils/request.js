@@ -1,6 +1,5 @@
 import Vue from 'vue'
 import axios from 'axios'
-import store from '@/store'
 import notification from 'ant-design-vue/es/notification'
 import { VueAxios } from './axios'
 import { ACCESS_TOKEN } from '@/store/mutation-types'

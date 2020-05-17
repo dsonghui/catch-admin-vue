@@ -9,7 +9,7 @@ import components from '@/config/componentsMap';
  * @returns {*}
  */
 // eslint-disable-next-line
-function hasRole(roles, route) {
+function hasRole (roles, route) {
   if (route.meta && route.meta.roles) {
     return route.meta.roles.includes(roles.id);
   } else {
@@ -17,7 +17,7 @@ function hasRole(roles, route) {
   }
 }
 
-function treePermissions(permissions, $pid = 0) {
+function treePermissions (permissions, $pid = 0) {
   const routes = [];
   for (const permission of permissions) {
     if ($pid === permission.parent_id) {
@@ -44,7 +44,7 @@ function treePermissions(permissions, $pid = 0) {
   return routes;
 }
 
-function filterThenGetMenus(permissions) {
+function filterThenGetMenus (permissions) {
   const menus = [];
   for (const permission of permissions) {
     if (permission.type === 1) {
@@ -66,7 +66,7 @@ const permission = {
     }
   },
   actions: {
-    GenerateRoutes({ commit }, data) {
+    GenerateRoutes ({ commit }, data) {
       return new Promise(resolve => {
         const { permissions } = data;
         (asyncRouterMap[0] as any).children = treePermissions(filterThenGetMenus(permissions));
@@ -74,7 +74,7 @@ const permission = {
         resolve();
       });
     },
-    GetLatestRoutes({ commit }, data) {
+    GetLatestRoutes ({ commit }, data) {
       const { permissions } = data;
       (asyncRouterMap[0] as any).children = treePermissions(filterThenGetMenus(permissions));
       commit('SET_ROUTERS', asyncRouterMap);

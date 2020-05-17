@@ -50,7 +50,9 @@ module.exports = {
         'ignoreReadBeforeAssign': false
       }
     ],
-    'quote-props':0
+    'quote-props': 0,
+    'space-before-blocks': 0,
+    'space-before-function-paren': 0
   },
   parserOptions: {
     parser: '@typescript-eslint/parser'

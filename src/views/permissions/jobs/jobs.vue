@@ -47,13 +47,11 @@
       :rowSelection="{ selectedRowKeys: selectedRowKeys, onChange: onSelectChange }"
       showPagination="auto"
     >
-      <span slot="action" slot-scope="text, record">
-        <template>
+      <template v-slot:action="text, record">
           <a @click="handleEdit(record)">编辑</a>
           <a-divider type="vertical" />
           <a @click="handleDel(record)">删除</a>
-        </template>
-      </span>
+      </template>
     </s-table>
     <create-job ref="jobModal" @ok="handleOk" />
   </a-card>
