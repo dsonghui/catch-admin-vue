@@ -15,7 +15,7 @@ export function getXiaoQubList (parameter) {
 
 export function store (parameter) {
   return axios({
-    url: '/jobs',
+    url: '/xiaoqu',
     method: 'post',
     data: parameter
   })
@@ -23,14 +23,14 @@ export function store (parameter) {
 
 export function read (id) {
   return axios({
-    url: '/jobs/' + id,
+    url: '/xiaoqu/' + id,
     method: 'get'
   })
 }
 
 export function update (id, parameter) {
   return axios({
-    url: '/jobs/' + id,
+    url: '/xiaoqu/' + id,
     method: 'put',
     data: parameter
   })
@@ -38,7 +38,7 @@ export function update (id, parameter) {
 
 export function del (id) {
   return axios({
-    url: '/jobs/' + id,
+    url: '/xiaoqu/' + id,
     method: 'delete'
   })
 }

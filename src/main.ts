@@ -21,6 +21,7 @@ import './components/global.less'
 
 Vue.config.productionTip = false
 Vue.prototype.toast = toast
+Vue.prototype.$toast = toast
 
 // mount axios Vue.$http and this.$http
 Vue.use(VueAxios);

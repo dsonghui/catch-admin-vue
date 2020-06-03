@@ -2,11 +2,13 @@ import Vue from 'vue';
 import { Component, Watch } from 'vue-property-decorator';
 import { STable } from '@/components';
 import { getXiaoQubList } from '@/api/xiaoqu';
+import XiaoQuCreate from './form/create';
 
 @Component({
   name: 'XiaoQuIndex',
   components: {
-    STable
+    STable,
+    XiaoQuCreate
   }
 })
 export default class XiaoQuIndex extends Vue {
@@ -15,12 +17,16 @@ export default class XiaoQuIndex extends Vue {
   selectedRowKeys: any = [];
   columns: any = [
     {
-      title: '岗位名称',
-      dataIndex: 'job_name'
+      title: '小区名称',
+      dataIndex: 'name'
     },
     {
       title: '编码',
-      dataIndex: 'coding'
+      dataIndex: 'bian_hao'
+    },
+    {
+      title: '地址',
+      dataIndex: 'address'
     },
     {
       title: '状态',
@@ -64,6 +70,7 @@ export default class XiaoQuIndex extends Vue {
   }
 
   handleAdd(){
+    this.$refs.create.add();
   }
 
   handleEdit(record){
@@ -78,6 +85,9 @@ export default class XiaoQuIndex extends Vue {
 
   handleMultiDel(){
 
+  }
+
+  handleOk(){
   }
 
   onSelectChange(){
@@ -138,6 +148,7 @@ export default class XiaoQuIndex extends Vue {
         rowSelection={{ selectedRowKeys: this.selectedRowKeys, onChange: this.onSelectChange }}
         showPagination="auto">
       </s-table>
+      <XiaoQuCreate ref="create" onOk={this.handleOk}/>
     </a-card>;
   }
 }
