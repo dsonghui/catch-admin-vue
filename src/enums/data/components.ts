@@ -22,6 +22,7 @@ export const components = new Enum({
     'config',
     'generate',
     'xiaoquIndex',
+    'diantiIndex',
     'IsEmptyPage'
   ]
 })

@@ -1,13 +1,13 @@
 import Vue from 'vue';
 import { Component, Watch } from 'vue-property-decorator';
-import { store, update } from '@/api/xiaoqu';
+import { store, update } from '@/api/dianti';
 import pick from 'lodash.pick';
 
 @Component({
-  name: 'XiaoQuCreate',
+  name: 'DianTiCreate',
   components: {}
 })
-export default class XiaoQuCreate extends Vue {
+export default class DianTiCreate extends Vue {
   props: any;
   $refs: any;
 
@@ -25,27 +25,32 @@ export default class XiaoQuCreate extends Vue {
   form: any = null;
 
   required: boolean = true;
-  title: string = '录入小区';
+  title: string = '录入电梯';
   sort: number = 1;
   status: number = 1;
+  xiaoquId: number = null;
 
   created(){
     this.form = this.$form.createForm(this);
   }
 
-  add(){
-    this.visible = true;
+  add(xiaoquId){
+    if (xiaoquId) {
+      this.xiaoquId = xiaoquId;
+      this.visible = true;
+    }
   }
 
   edit(record){
     this.visible = true;
     this.required = false;
     this.id = record.id;
-    this.title = '编辑小区信息';
+    this.title = '编辑电梯信息';
     this.sort = record.sort;
+    this.xiaoquId = record.xiaoqu_id;
     const { form: { setFieldsValue } } = this;
     this.$nextTick(() => {
-      setFieldsValue(pick(record, ['name', 'shou_zi_mu', 'bian_hao', 'address', 'sort', 'status']));
+      setFieldsValue(pick(record, ['name', 'xiaoqu_id', 'bian_hao', 'address', 'sort', 'status']));
     });
   }
 
@@ -59,6 +64,7 @@ export default class XiaoQuCreate extends Vue {
             this.refresh(res);
           });
         } else {
+          values.xiaoqu_id = this.xiaoquId;
           store(values).then((res) => {
             this.refresh(res);
           });
@@ -107,7 +113,7 @@ export default class XiaoQuCreate extends Vue {
       <a-spin spinning={this.confirmLoading}>
         <a-form form={this.form}>
           <a-form-item
-            label="小区名称"
+            label="电梯名称"
             type="text"
             labelCol={this.labelCol}
             wrapperCol={this.wrapperCol}
@@ -116,14 +122,7 @@ export default class XiaoQuCreate extends Vue {
           </a-form-item>
 
           <a-form-item
-            label="拼音首字母"
-            labelCol={this.labelCol}
-            wrapperCol={this.wrapperCol}
-          >
-            <a-input allowClear v-decorator={['shou_zi_mu']}/>
-          </a-form-item>
-          <a-form-item
-            label="编码"
+            label="电梯编号"
             labelCol={this.labelCol}
             wrapperCol={this.wrapperCol}
           >

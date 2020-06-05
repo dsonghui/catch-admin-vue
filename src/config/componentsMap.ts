@@ -20,6 +20,7 @@ export default {
   config: () => import('@/views/system/config/index.vue'),
   generate: () => import('@/views/system/generate/index.vue'),
   xiaoquIndex: () => import('@/views/xiaoqu/index'),
+  diantiIndex: () => import('@/views/xiaoqu/dianti/index'),
   IsEmptyPage: () => import('@/views/common/empty')
   // cms 配置
   // 分类
@@ -28,4 +29,4 @@ export default {
   // article: () => import('@/views/cms/article'),
   // 友情链接
   // friendLink: () => import('@/views/cms/friendLink')
-}
+};

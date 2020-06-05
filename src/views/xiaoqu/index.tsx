@@ -1,8 +1,9 @@
 import Vue from 'vue';
 import { Component, Watch } from 'vue-property-decorator';
 import { STable } from '@/components';
-import { getXiaoQubList } from '@/api/xiaoqu';
+import { getXiaoQubList, del } from '@/api/xiaoqu';
 import XiaoQuCreate from './form/create';
+import { filterObjectMember } from '@/utils/util';
 
 @Component({
   name: 'XiaoQuIndex',
@@ -12,7 +13,10 @@ import XiaoQuCreate from './form/create';
   }
 })
 export default class XiaoQuIndex extends Vue {
-  $refs: any;
+  $refs: {
+    table: any,
+    create: XiaoQuCreate
+  };
   queryParam: any = {};
   selectedRowKeys: any = [];
   columns: any = [
@@ -46,12 +50,12 @@ export default class XiaoQuIndex extends Vue {
     }
   ];
 
-  loadData: any = parameter => {
-    return getXiaoQubList(Object.assign(parameter, this.queryParam))
+  loadData(parameter){
+    return getXiaoQubList(filterObjectMember(Object.assign(parameter, this.queryParam)))
       .then(res => {
         return res;
       });
-  };
+  }
 
   renderStatus(value, row, index){
     return value === 1 ? <a-button type="normal" size="small">正常</a-button> :
@@ -67,6 +71,7 @@ export default class XiaoQuIndex extends Vue {
   }
 
   handleSearch(){
+    this.$refs.table.refresh(true);
   }
 
   handleAdd(){
@@ -74,24 +79,55 @@ export default class XiaoQuIndex extends Vue {
   }
 
   handleEdit(record){
-    console.log(record);
+    this.$refs.create.edit(record);
   }
 
-  handleDel(){
+  handleDel(record){
+    this.$confirm({
+      title: '确定删除' + record.name + '吗?',
+      okText: '确定',
+      okType: 'danger',
+      cancelText: '取消',
+      onOk: () => {
+        del(record.id).then((res) => {
+          this.toast(res);
+          this.handleOk();
+        });
+      },
+      onCancel(){
+      }
+    });
   }
 
   resetSearchForm(){
+    this.queryParam = {};
+    this.handleOk();
   }
 
   handleMultiDel(){
-
+    this.$confirm({
+      title: '确定批量删除吗?',
+      okText: '确定',
+      okType: 'danger',
+      cancelText: '取消',
+      onOk: () => {
+        del(this.selectedRowKeys.join(',')).then((res) => {
+          this.toast(res);
+          this.selectedRowKeys = [];
+          this.handleOk();
+        });
+      },
+      onCancel(){
+      }
+    });
   }
 
   handleOk(){
+    this.$refs.table.refresh(true);
   }
 
-  onSelectChange(){
-
+  onSelectChange(selectedRowKeys, selectedRows){
+    this.selectedRowKeys = selectedRowKeys;
   }
 
   render(){
@@ -100,10 +136,10 @@ export default class XiaoQuIndex extends Vue {
         <a-form layout="inline">
           <a-row gutter={48}>
             <a-col md={4} sm={24}>
-              <a-input allowClear vModel={this.queryParam.job_name} placeholder="请输入小区名称"/>
+              <a-input allowClear vModel={this.queryParam.name} placeholder="请输入小区名称"/>
             </a-col>
             <a-col md={4} sm={24}>
-              <a-input allowClear vModel={this.queryParam.coding} placeholder="请输入小区编码"/>
+              <a-input allowClear vModel={this.queryParam.bian_hao} placeholder="请输入小区编码"/>
             </a-col>
             <a-col md={4} sm={24}>
               <a-select allowClear vModel={this.queryParam.status} placeholder="请选择状态" default-value="0">
